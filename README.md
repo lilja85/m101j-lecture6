@@ -8,8 +8,8 @@ to the db files if necessary. I executed the script from another drive than c: a
 to some of the lines in the script.
 
 Those of you who did not go trough the course at https://education.10gen.com/ during spring 2013 and still want to
-try and run this need to install mongodb from http://www.mongodb.org/. This version uses mongodb 2.2.3 and to run
-this script you need the path to your mongo db bin in the system PATH variable.
+try and run this need to install mongodb from http://www.mongodb.org/. This version was tested with mongodb 2.2.3
+and to run this script you need the path to your mongodb bin folder in the windows system PATH variable.
 
 ##Extra files
 
