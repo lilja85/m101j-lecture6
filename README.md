@@ -15,11 +15,11 @@ and to run this script you need the path to your mongodb bin folder in the windo
 
 I also included some extra files.
 
-**close_shard.bat**
+[**close_shard.bat**](https://github.com/lilja85/m101j-lecture6/blob/master/close_shard.bat)
 
 Shutdown the shard in a more neat way instead of just killing the processes. Also needs close_mongod.js to run
 
-**start_shard.bat**
+[**start_shard.bat**](https://github.com/lilja85/m101j-lecture6/blob/master/start_shard.bat)
 
 If the shard has already been created run this to start instead of recreating the whole environment with
 create_shard.bat.
