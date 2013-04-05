@@ -3,11 +3,11 @@ M101j - Windows .bat files for lecture 6
 
 Windows equivalent of the bash scripts supplied by the tutor in M101J course lecture 6.
 
-It's almost the same files and they should do the same thing as the bash files but they provided as is and I can't take responsibility for any errors it might cause.
-
 To install the shard just download the files and run create_shard.bat in a command shel in windows. Edit the paths to
 the db files if neccesary. I executed the script from another drive than c: and thats why I've added the c:\ part to
 some of the lines in the script.
+
+All files are provided as is and I can't take responsibility for any errors they might cause.
 
 ##Extra files
 
