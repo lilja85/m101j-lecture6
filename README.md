@@ -12,7 +12,9 @@ some of the lines in the script.
 I also included some extra files.
 
 **close_shard.bat**
+
 Shutsdown the shard in a more neat way instead of just killing the processes. Also needs close_mongod.js to run
 
 **start_shard.bat**
+
 If the shard has already been created run this to start instead of recreate.
