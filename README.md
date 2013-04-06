@@ -26,8 +26,9 @@ create_shard.bat.
 
 [**init_sharded_env.ps1**](https://github.com/lilja85/m101j-lecture6/blob/master/init_sharded_env.ps1)
 
-If you would like to try starting the shard with powershell this script is all you need. It's almost exactly the
-same as the bash script but it prints the commands that are run to start the mongod and mongos processes.
+We have not used powershell in the course, but if you would like to try starting the shard with that, this
+script is all you need. It's almost exactly the same as the bash script but it prints the commands that
+are run to start the mongod and mongos processes.
 
 ##Disclaimer
 This project is provided "as is". It has not been properly tested and there is no official support for it provided
