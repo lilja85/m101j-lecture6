@@ -24,6 +24,11 @@ Shutdown the shard in a more neat way instead of just killing the processes. Als
 If the shard has already been created run this to start instead of recreating the whole environment with
 create_shard.bat.
 
+[**init_sharded_env.ps1**](https://github.com/lilja85/m101j-lecture6/blob/master/init_sharded_env.ps1)
+
+If you would like to try starting the shard with powershell this script is all you need. It's almost exactly the
+same as the bash script but it prints the commands that are run to start the mongod and mongos processes.
+
 ##Disclaimer
 This project is provided "as is". It has not been properly tested and there is no official support for it provided
 by anyone (especially not by 10gen). It is intended for M101J's students using windows.
