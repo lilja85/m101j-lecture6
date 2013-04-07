@@ -1,2 +1,0 @@
-use admin;
-db.shutdownServer();
