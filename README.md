@@ -17,7 +17,7 @@ I also included some extra files.
 
 [**close_shard.bat**](https://github.com/lilja85/m101j-lecture6/blob/master/close_shard.bat)
 
-Shutdown the shard in a more neat way instead of just killing the processes. Also needs close_mongod.js to run
+Shutdown the shard in a more neat way instead of just killing the processes.
 
 [**start_shard.bat**](https://github.com/lilja85/m101j-lecture6/blob/master/start_shard.bat)
 
