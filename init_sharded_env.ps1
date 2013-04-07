@@ -2,6 +2,10 @@
 	Author: Christoffer Lilja, http://liljaonline.se/en/
 	Description: Script to start sharded mongodb environment on localhost
 	Created: 2013-04-06
+	Modified:
+		2013-04-07	Replaced md with New-Item.
+					Removed some verbose errors like no mongod processes found to kill
+					Corrected the folder paths to shard1 and shard2
 	Credits: Based on bash script from Andrew Erlichson from 10gen during
 	         mongo for java developers course hosted by the same company
 
@@ -17,16 +21,16 @@
 
 # clean everything up
 Write-Host "Killing mongod and mongos processes"
-Get-Process mongod | Stop-Process -Force
-Get-Process mongos | Stop-Process -Force
+Get-Process mongod -ErrorAction SilentlyContinue | Stop-Process -Force
+Get-Process mongos -ErrorAction SilentlyContinue | Stop-Process -Force
 
 Write-Host "Removing data files"
-Remove-Item -Recurse -Force "c:\data\config"
-Remove-Item -Recurse -Force "c:\data\shard"
+Remove-Item "c:\data\config" -Recurse -Force -ErrorAction SilentlyContinue 
+Remove-Item "c:\data\shard" -Recurse -Force -ErrorAction SilentlyContinue
 
 
 Write-Host "start a replica set and tell it that it will be a shard0"
-md "c:/data/shard/shard0/dbrs7", "c:/data/shard/shard0/dbrs8", "c:/data/shard/shard0/dbrs9" -Force | Out-Null
+New-Item -Path "c:/data/shard/shard0/dbrs7", "c:/data/shard/shard0/dbrs8", "c:/data/shard/shard0/dbrs9" -Type directory -Force | Out-Null
 Start-Job { mongod --replSet "s0" --logpath "c:/data/logs/dbrs7.log" --dbpath "c:/data/shard/shard0/dbrs7" --port 37017 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
 Start-Job { mongod --replSet "s0" --logpath "c:/data/logs/dbrs8.log" --dbpath "c:/data/shard/shard0/dbrs8" --port 37018 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
 Start-Job { mongod --replSet "s0" --logpath "c:/data/logs/dbrs9.log" --dbpath "c:/data/shard/shard0/dbrs9" --port 37019 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
@@ -43,10 +47,10 @@ rs.initiate(config)
 
 
 Write-Host " start a replica set and tell it that it will be a shard1"
-md "c:/data/shard/shard0/dbrs10", "c:/data/shard/shard0/dbrs11", "c:/data/shard/shard0/dbrs12" -Force | Out-Null
-Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs10.log" --dbpath "c:/data/shard/shard0/dbrs10" --port 47017 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
-Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs11.log" --dbpath "c:/data/shard/shard0/dbrs11" --port 47018 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
-Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs12.log" --dbpath "c:/data/shard/shard0/dbrs12" --port 47019 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+New-Item -Path "c:/data/shard/shard1/dbrs10", "c:/data/shard/shard1/dbrs11", "c:/data/shard/shard1/dbrs12" -Type directory -Force | Out-Null
+Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs10.log" --dbpath "c:/data/shard/shard1/dbrs10" --port 47017 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs11.log" --dbpath "c:/data/shard/shard1/dbrs11" --port 47018 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+Start-Job { mongod --replSet "s1" --logpath "c:/data/logs/dbrs12.log" --dbpath "c:/data/shard/shard1/dbrs12" --port 47019 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
 
 # connect to one server and initiate the set
 Start-Sleep -s 5
@@ -60,10 +64,10 @@ rs.initiate(config)
 
 
 Write-Host "start a replica set and tell it that it will be a shard2"
-md "c:/data/shard/shard0/dbrs13", "c:/data/shard/shard0/dbrs14", "c:/data/shard/shard0/dbrs15" -Force | Out-Null
-Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs13.log" --dbpath "c:/data/shard/shard0/dbrs13" --port 57017 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
-Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs14.log" --dbpath "c:/data/shard/shard0/dbrs14" --port 57018 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
-Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs15.log" --dbpath "c:/data/shard/shard0/dbrs15" --port 57019 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+New-Item -Path "c:/data/shard/shard2/dbrs13", "c:/data/shard/shard2/dbrs14", "c:/data/shard/shard2/dbrs15" -Type directory -Force | Out-Null
+Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs13.log" --dbpath "c:/data/shard/shard2/dbrs13" --port 57017 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs14.log" --dbpath "c:/data/shard/shard2/dbrs14" --port 57018 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
+Start-Job { mongod --replSet "s2" --logpath "c:/data/logs/dbrs15.log" --dbpath "c:/data/shard/shard2/dbrs15" --port 57019 --shardsvr --logappend --smallfiles --oplogSize 100 } | Select-Object Command
 
 # connect to one server and initiate the set
 Start-Sleep -s 5
