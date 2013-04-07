@@ -1,17 +1,14 @@
 @echo off
 
-:: Author: Christoffer Lilja, http://liljaonline.se/en/
+:: Author:      Christoffer Lilja, http://liljaonline.se/en/
 :: Description: Script to start sharded mongodb environment on localhost
-:: Credits: Based on bash script from Andrew Erlichson from 10gen during
-::          mongo for java developers course hosted by the same company.
-::          Thanks to the tutor Jai Hirsch the script now uses --eval
-::          instead of external javascript files.
-::          https://github.com/JaiHirsch/mongodb-java-examples/blob/master/mongodb-java-examples/init_sharded_env.bat
-::
-:: Notes:
-:: I couldn't find an equivalent to embedding multiline strings into this
-:: so I put the configutation sent to mongo in separate .js files. Download
-:: all files and put them into the same directory and just run this .bat file
+:: Credits:     Based on bash script from Andrew Erlichson from 10gen during mongo for java developers course
+::              hosted by the same company.
+::              Thanks to the tutor Jai Hirsch the script now uses --eval instead of external javascript files.
+::              You can find his version at
+::              https://github.com/JaiHirsch/mongodb-java-examples/blob/master/mongodb-java-examples/init_sharded_env.bat
+:: Created:     2013-04-04
+:: Modified:    2013-04-07 Now uses --eval instead of external .js files and changed log file names
 
 :: Clean everything up
 echo Killing mongod and mongos processes
