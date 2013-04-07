@@ -32,4 +32,5 @@ are run to start the mongod and mongos processes.
 
 ##Disclaimer
 This project is provided "as is". It has not been properly tested and there is no official support for it provided
-by anyone (especially not by 10gen). It is intended for M101J's students using windows.
+by anyone (especially not by 10gen). It is intended for M101J's students using windows. Having that said, you are free
+to use this code for any purposes.
