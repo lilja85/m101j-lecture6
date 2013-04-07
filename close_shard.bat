@@ -5,31 +5,31 @@ echo.
 echo Shutting down mongos.exe
 echo.
 
-mongo < close_mongod.js
+mongo "localhost/admin" --eval "db.shutdownServer();"
 
 :: Shard config servers
 echo Shutting down shard configuration
-mongo --port 57040 < close_mongod.js
-mongo --port 57041 < close_mongod.js
-mongo --port 57042 < close_mongod.js
+mongo "localhost:57040/admin" --eval "db.shutdownServer();"
+mongo "localhost:57041/admin" --eval "db.shutdownServer();"
+mongo "localhost:57042/admin" --eval "db.shutdownServer();"
 
 :: Shard0
 echo Shutting down shard 0
-mongo --port 37017 < close_mongod.js
-mongo --port 37018 < close_mongod.js
-mongo --port 37019 < close_mongod.js
+mongo "localhost:37017/admin" --eval "db.shutdownServer();"
+mongo "localhost:37018/admin" --eval "db.shutdownServer();"
+mongo "localhost:37019/admin" --eval "db.shutdownServer();"
 
 :: Shard1
 echo Shutting down shard 1
-mongo --port 47017 < close_mongod.js
-mongo --port 47018 < close_mongod.js
-mongo --port 47019 < close_mongod.js
+mongo "localhost:47017/admin" --eval "db.shutdownServer();"
+mongo "localhost:47018/admin" --eval "db.shutdownServer();"
+mongo "localhost:47019/admin" --eval "db.shutdownServer();"
 
 :: Shard2
 echo Shutting down shard 2
-mongo --port 57017 < close_mongod.js
-mongo --port 57018 < close_mongod.js
-mongo --port 57019 < close_mongod.js
+mongo "localhost:57017/admin" --eval "db.shutdownServer();"
+mongo "localhost:57018/admin" --eval "db.shutdownServer();"
+mongo "localhost:57019/admin" --eval "db.shutdownServer();"
 
 echo.
 echo All mongod and mongos processes for the shard environment should now have been taken down
