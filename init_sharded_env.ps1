@@ -1,22 +1,18 @@
 <#
-	Author: Christoffer Lilja, http://liljaonline.se/en/
+	Author:      Christoffer Lilja, http://liljaonline.se/en/
 	Description: Script to start sharded mongodb environment on localhost
-	Created: 2013-04-06
-	Modified:
-		2013-04-07	Replaced md with New-Item.
-					Removed some verbose errors like no mongod processes found to kill
-					Corrected the folder paths to shard1 and shard2
-	Credits: Based on bash script from Andrew Erlichson from 10gen during
-	         mongo for java developers course hosted by the same company
-
-	Notes:
-	This is pretty much the same script as provided by the tutor but I print
-	the commands used to start all mongod and the mongos. If you don't wan't
-	them just replace the "Select-Object Command" with "Out-Null"
+	Credits:     Based on bash script from Andrew Erlichson from 10gen during mongo for java developers course
+	             hosted by the same company
+	Created:     2013-04-06
+	Modified:    2013-04-07 Replaced md with New-Item. Removed some verbose errors like no mongod processes found
+	             to kill. Corrected the folder paths to shard1 and shard2
 	
-	If you have not run any powershell script before you will most likely have
-	to allow them. I did it by entering "Set-ExecutionPolicy  Unrestricted" in
-	a powershell console run as an administrator.
+	Notes:
+	This is pretty much the same script as provided by the tutor but I print the commands used to start all mongod
+	and the mongos. If you don't wan't them just replace the "Select-Object Command" with "Out-Null"
+	
+	If you have not run any powershell script before you will most likely have to allow them. I did it by entering
+	"Set-ExecutionPolicy  Unrestricted" in a powershell console run as an administrator.
 #>
 
 # clean everything up
