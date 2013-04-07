@@ -3,7 +3,7 @@ M101J - Windows .bat files for lecture 6
 
 Windows equivalent of the bash scripts supplied by the tutor in M101J course lecture 6.
 
-To install the shard just download the files and run create_shard.bat in a command shell in windows. Edit the paths
+To install the shard just download the files and run init_sharded_env.bat in a command shell in windows. Edit the paths
 to the db files if necessary. I executed the script from another drive than c: and thats why I've added the c:\ part
 to some of the lines in the script.
 
